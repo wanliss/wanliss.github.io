@@ -9,6 +9,4 @@ Space Weather Forecasting (especially for weather, earth systems, and climate pr
 Spatio-temporal Modelling (especially using a fusion of large-scale deep learning and probabilistic modelling for scientific applications)
 Below you’ll find information about my group.
 
-You can stay up to date with my most recent research on Google Scholar or by following me on LinkedIn.
-
-Directions to my office are here.
+You can stay up to date with my most recent research on [Google Scholar](https://scholar.google.com/citations?user=-Z1y9dAAAAAJ&hl=en&oi=ao) or by following me on [LinkedIn](https://www.linkedin.com/in/james-wanliss-44800a24/).
