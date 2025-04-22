@@ -1,4 +1,4 @@
-I’m James Wanliss, a Professor of General Engineering in the LAUCATED, The Laboratory at Anderson Univeristy for Complex and Turbulent Engineering Dynamics.
+I’m James Wanliss, a Professor of General Engineering in the LAUCATED, the **L**aboratory at **A**nderson **U**niversity for **C**omplex and **T**urbulent **E**ngineering **D**ynamics.
 
 My previous roles include Professor of Physics at Presbyterian College, Associate Professor of Engineering Physics at Embry-Riddle Aeronautical University, Visiting Associate Professor at Nagoya Univeristy and Kyung-Hee University.
 
