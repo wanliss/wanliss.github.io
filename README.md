@@ -1,6 +1,7 @@
 I’m James Wanliss, a Professor of General Engineering in the LAUCATED, The Laboratory at Anderson Univeristy for Complex and Turbulent Engineering Dynamics.
 
 My previous roles include Professor of Physics at Presbyterian College, Associate Professor of Engineering Physics at Embry-Riddle Aeronautical University, Visiting Associate Professor at Nagoya Univeristy and Kyung-Hee University.
+
 My current research interests include:
 
 Probabilistic Machine Learning Fundamentals (including generative models and uncertainty-aware approaches)
