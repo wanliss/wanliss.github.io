@@ -6,35 +6,221 @@
   <style>
     body {
       margin: 0;
-      background: linear-gradient(to bottom, #050510, #0a0f2c, #000000);
-      color: white;
       font-family: Arial, sans-serif;
+      color: white;
+      background: radial-gradient(circle at bottom, #1f2eff, #0a0f2c, #000000);
+      overflow-x: hidden;
+    }
+
+    /* ⭐ MULTI-LAYER STAR FIELD */
+    .stars, .stars2 {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      top: 0;
+      left: 0;
+    }
+
+    .stars::after {
+      content: "";
+      position: absolute;
+      width: 2px;
+      height: 2px;
+      background: white;
+      box-shadow:
+        100px 200px white, 300px 400px white, 500px 100px white,
+        700px 300px white, 900px 150px white, 1100px 350px white,
+        1300px 250px white, 1500px 100px white, 1700px 400px white,
+        200px 600px white, 400px 700px white, 800px 650px white,
+        1200px 600px white, 1600px 700px white;
+      animation: twinkle 4s infinite alternate;
+    }
+
+    .stars2::after {
+      content: "";
+      position: absolute;
+      width: 3px;
+      height: 3px;
+      background: #cfd8ff;
+      box-shadow:
+        150px 250px #cfd8ff, 350px 450px #cfd8ff, 750px 200px #cfd8ff,
+        950px 500px #cfd8ff, 1250px 300px #cfd8ff, 1550px 600px #cfd8ff;
+      animation: twinkle 6s infinite alternate;
+    }
+
+    @keyframes twinkle {
+      from { opacity: 0.3; }
+      to { opacity: 1; }
+    }
+
+    /* HEADER */
+    .header {
       text-align: center;
-      padding-top: 100px;
+      padding-top: 80px;
     }
 
     h1 {
       font-size: 48px;
+      margin-bottom: 10px;
     }
 
-    p {
+    .subtitle {
+      color: #b0c4ff;
       font-size: 20px;
+    }
+
+    /* MAIN SECTION */
+    .main {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      margin-top: 50px;
+      gap: 40px;
+      padding: 20px;
+    }
+
+    .photo {
+      width: 250px;
+      height: 300px;
+      background-color: gray;
+      border-radius: 10px;
+    }
+
+    .content {
+      max-width: 600px;
+      text-align: justify;
+    }
+
+    .content h2 {
+      font-size: 22px;
+    }
+
+    /* LINKS */
+    .links {
+      text-align: center;
+      margin-top: 30px;
+    }
+
+    .links a {
       color: #9bbcff;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    /* FELLOWS */
+    .fellows-section {
+      text-align: center;
+      margin-top: 100px;
+    }
+
+    .fellows-grid {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 40px;
+      margin-top: 40px;
+    }
+
+    .row {
+      display: flex;
+      gap: 30px;
+      justify-content: center;
+    }
+
+    .fellow {
+      width: 180px;
+      text-align: center;
+    }
+
+    .fellow img {
+      width: 180px;
+      height: 180px;
+      background: gray;
+      border-radius: 10px;
+    }
+
+    .fellow-name {
+      font-weight: bold;
+      margin-top: 10px;
+    }
+
+    .fellow-desc {
+      font-size: 14px;
+      margin-top: 5px;
+      color: #ccc;
     }
   </style>
 </head>
 
 <body>
+
+<div class="stars"></div>
+<div class="stars2"></div>
+
+<div class="header">
   <h1>James Wanliss</h1>
-  <p>Professor of General Engineering in the LAUCATED, the Laboratory at Anderson University for Complex and Turbulent Engineering Dynamics.
-</p>
-   <div style="max-width: 800px; margin: 40px auto; font-size: 18px; line-height: 1.6;">
-     <p><strong>Previous Roles:</strong></p>
-     <p>Professor of Physics at Presbyterian College, Associate Professor of Engineering Physics at Embry-Riddle Aeronautical University, Visiting Associate Professor at Nagoya University and Kyung-Hee University.
- </p>
-     <p><strong>Current Research Interests:</strong></p>
-     <p>Probabilistic Machine Learning Fundamentals (including generative models and uncertainty-aware approaches) Space Weather Forecasting (especially for weather, earth systems, and climate prediction) Spatio-temporal Modelling (especially using a fusion of large-scale deep learning and probabilistic modelling for scientific applications) Below you’ll find information about my group.
-You can stay up to date with my most recent research on Google Scholar or by following me on LinkedIn.
-   </p>
+  <div class="subtitle">
+    Professor of General Engineering at Anderson University and Director of LAUCATED —
+    the Laboratory for Complex and Turbulent Engineering Dynamics.
+  </div>
+</div>
+
+<div class="main">
+  <div class="photo"></div>
+
+  <div class="content">
+    <h2>Previous Roles</h2>
+    <ul>
+      <li>Professor of Physics at Presbyterian College</li>
+      <li>Associate Professor of Engineering Physics at Embry-Riddle Aeronautical University</li>
+      <li>Visiting Associate Professor at Nagoya University</li>
+      <li>Visiting Associate Professor at Kyung-Hee University</li>
+    </ul>
+
+    <h2>Current Research Interests</h2>
+    <ul>
+      <li>Probabilistic Machine Learning Fundamentals</li>
+      <li>Space Weather Forecasting and Earth System Prediction</li>
+      <li>Spatio-temporal Modeling using deep learning</li>
+    </ul>
+  </div>
+</div>
+
+<div class="links">
+  <a href="https://scholar.google.com/citations?user=-Z1y9dAAAAAJ&hl=en&oi=ao" target="_blank">Google Scholar</a>
+  |
+  <a href="https://www.linkedin.com/in/james-wanliss-44800a24/" target="_blank">LinkedIn</a>
+</div>
+
+<div class="fellows-section">
+  <h2>LAUCATED Research Fellows</h2>
+
+  <div class="fellows-grid">
+    <div class="row">
+      <div class="fellow"><img src=""><div class="fellow-name">Name</div><div class="fellow-desc">Project description for Name for LAUCATED Anderson University</div></div>
+      <div class="fellow"><img src=""><div class="fellow-name">Name</div><div class="fellow-desc">Project description for Name for LAUCATED Anderson University</div></div>
+      <div class="fellow"><img src=""><div class="fellow-name">Name</div><div class="fellow-desc">Project description for Name for LAUCATED Anderson University</div></div>
+      <div class="fellow"><img src=""><div class="fellow-name">Name</div><div class="fellow-desc">Project description for Name for LAUCATED Anderson University</div></div>
+    </div>
+
+    <div class="row">
+      <div class="fellow"><img src=""><div class="fellow-name">Name</div><div class="fellow-desc">Project description for Name for LAUCATED Anderson University</div></div>
+      <div class="fellow"><img src=""><div class="fellow-name">Name</div><div class="fellow-desc">Project description for Name for LAUCATED Anderson University</div></div>
+      <div class="fellow"><img src=""><div class="fellow-name">Name</div><div class="fellow-desc">Project description for Name for LAUCATED Anderson University</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- 🌠 PARALLAX SCROLL EFFECT -->
+<script>
+window.addEventListener("scroll", function() {
+  let scrollY = window.scrollY;
+  document.querySelector(".stars").style.transform = "translateY(" + scrollY * 0.2 + "px)";
+  document.querySelector(".stars2").style.transform = "translateY(" + scrollY * 0.4 + "px)";
+});
+</script>
+
 </body>
 </html>
