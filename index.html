@@ -8,11 +8,14 @@
       margin: 0;
       font-family: Arial, sans-serif;
       color: white;
-      background: radial-gradient(circle at bottom, #1f2eff, #0a0f2c, #000000);
       overflow-x: hidden;
+
+      /* 🌌 NAVY → DUSTY BLUE CENTER GLOW */
+      background: radial-gradient(circle at center, #3a4a7a 0%, #0a0f2c 60%, #000000 100%);
+      background-attachment: fixed;
     }
 
-    /* ⭐ MULTI-LAYER STAR FIELD */
+    /* ✨ SOFT GLOW STARS */
     .stars, .stars2 {
       position: fixed;
       width: 100%;
@@ -27,13 +30,18 @@
       position: absolute;
       width: 2px;
       height: 2px;
+      border-radius: 50%;
       background: white;
       box-shadow:
-        100px 200px white, 300px 400px white, 500px 100px white,
-        700px 300px white, 900px 150px white, 1100px 350px white,
-        1300px 250px white, 1500px 100px white, 1700px 400px white,
-        200px 600px white, 400px 700px white, 800px 650px white,
-        1200px 600px white, 1600px 700px white;
+        100px 200px 6px rgba(255,255,255,0.8),
+        300px 400px 8px rgba(255,255,255,0.6),
+        500px 100px 6px rgba(255,255,255,0.7),
+        700px 300px 10px rgba(255,255,255,0.5),
+        900px 150px 6px rgba(255,255,255,0.8),
+        1100px 350px 8px rgba(255,255,255,0.6),
+        1300px 250px 6px rgba(255,255,255,0.7),
+        1500px 100px 10px rgba(255,255,255,0.5),
+        1700px 400px 6px rgba(255,255,255,0.8);
       animation: twinkle 4s infinite alternate;
     }
 
@@ -42,10 +50,15 @@
       position: absolute;
       width: 3px;
       height: 3px;
-      background: #cfd8ff;
+      border-radius: 50%;
+      background: #dbe3ff;
       box-shadow:
-        150px 250px #cfd8ff, 350px 450px #cfd8ff, 750px 200px #cfd8ff,
-        950px 500px #cfd8ff, 1250px 300px #cfd8ff, 1550px 600px #cfd8ff;
+        150px 250px 10px rgba(219,227,255,0.6),
+        350px 450px 12px rgba(219,227,255,0.5),
+        750px 200px 10px rgba(219,227,255,0.6),
+        950px 500px 12px rgba(219,227,255,0.5),
+        1250px 300px 10px rgba(219,227,255,0.6),
+        1550px 600px 12px rgba(219,227,255,0.5);
       animation: twinkle 6s infinite alternate;
     }
 
@@ -62,12 +75,14 @@
 
     h1 {
       font-size: 48px;
-      margin-bottom: 10px;
+      margin-bottom: 15px;
     }
 
     .subtitle {
-      color: #b0c4ff;
-      font-size: 20px;
+      color: #c7d2ff;
+      font-size: 18px;
+      max-width: 900px;
+      margin: auto;
     }
 
     /* MAIN SECTION */
@@ -75,16 +90,15 @@
       display: flex;
       justify-content: center;
       align-items: flex-start;
-      margin-top: 50px;
-      gap: 40px;
+      margin-top: 60px;
+      gap: 50px;
       padding: 20px;
     }
 
     .photo {
-      width: 250px;
-      height: 300px;
+      width: 260px;
+      height: 320px;
       background-color: gray;
-      border-radius: 10px;
     }
 
     .content {
@@ -94,17 +108,24 @@
 
     .content h2 {
       font-size: 22px;
+      margin-bottom: 10px;
     }
 
-    /* LINKS */
+    .content ul {
+      margin-bottom: 25px;
+    }
+
+    /* LINKS TEXT */
     .links {
       text-align: center;
-      margin-top: 30px;
+      margin-top: 20px;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
     }
 
     .links a {
       color: #9bbcff;
-      margin: 0 15px;
       text-decoration: none;
       font-weight: bold;
     }
@@ -138,7 +159,6 @@
       width: 180px;
       height: 180px;
       background: gray;
-      border-radius: 10px;
     }
 
     .fellow-name {
@@ -162,15 +182,16 @@
 <div class="header">
   <h1>James Wanliss</h1>
   <div class="subtitle">
-    Professor of General Engineering at Anderson University and Director of LAUCATED —
-    the Laboratory for Complex and Turbulent Engineering Dynamics.
+    I’m James Wanliss, a Professor of General Engineering in the LAUCATED, the Laboratory at Anderson University for Complex and Turbulent Engineering Dynamics.
   </div>
 </div>
 
 <div class="main">
+  
   <div class="photo"></div>
 
   <div class="content">
+
     <h2>Previous Roles</h2>
     <ul>
       <li>Professor of Physics at Presbyterian College</li>
@@ -181,23 +202,26 @@
 
     <h2>Current Research Interests</h2>
     <ul>
-      <li>Probabilistic Machine Learning Fundamentals</li>
-      <li>Space Weather Forecasting and Earth System Prediction</li>
-      <li>Spatio-temporal Modeling using deep learning</li>
+      <li>Probabilistic Machine Learning Fundamentals (including generative models and uncertainty-aware approaches)</li>
+      <li>Space Weather Forecasting (especially for weather, earth systems, and climate prediction)</li>
+      <li>Spatio-temporal Modelling (especially using a fusion of large-scale deep learning and probabilistic modelling for scientific applications)</li>
     </ul>
+
   </div>
 </div>
 
 <div class="links">
-  <a href="https://scholar.google.com/citations?user=-Z1y9dAAAAAJ&hl=en&oi=ao" target="_blank">Google Scholar</a>
-  |
-  <a href="https://www.linkedin.com/in/james-wanliss-44800a24/" target="_blank">LinkedIn</a>
+  You can stay up to date with my most recent research on 
+  <a href="https://scholar.google.com/citations?user=-Z1y9dAAAAAJ&hl=en&oi=ao" target="_blank">Google Scholar</a> 
+  or by following me on 
+  <a href="https://www.linkedin.com/in/james-wanliss-44800a24/" target="_blank">LinkedIn</a>.
 </div>
 
 <div class="fellows-section">
   <h2>LAUCATED Research Fellows</h2>
 
   <div class="fellows-grid">
+
     <div class="row">
       <div class="fellow"><img src=""><div class="fellow-name">Name</div><div class="fellow-desc">Project description for Name for LAUCATED Anderson University</div></div>
       <div class="fellow"><img src=""><div class="fellow-name">Name</div><div class="fellow-desc">Project description for Name for LAUCATED Anderson University</div></div>
@@ -210,10 +234,11 @@
       <div class="fellow"><img src=""><div class="fellow-name">Name</div><div class="fellow-desc">Project description for Name for LAUCATED Anderson University</div></div>
       <div class="fellow"><img src=""><div class="fellow-name">Name</div><div class="fellow-desc">Project description for Name for LAUCATED Anderson University</div></div>
     </div>
+
   </div>
 </div>
 
-<!-- 🌠 PARALLAX SCROLL EFFECT -->
+<!-- 🌠 PARALLAX STARS -->
 <script>
 window.addEventListener("scroll", function() {
   let scrollY = window.scrollY;
