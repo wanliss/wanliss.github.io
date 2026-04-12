@@ -16,56 +16,32 @@
     }
 
     /* ✨ SOFT GLOW STARS */
-    .stars, .stars2 {
-      position: fixed;
-      width: 100%;
-      height: 100%;
-      z-index: -1;
-      top: 0;
-      left: 0;
-    }
+#star-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  overflow: hidden;
+}
 
-    .stars::after {
-      content: "";
-      position: absolute;
-      width: 2px;
-      height: 2px;
-      border-radius: 50%;
-      background: white;
-      box-shadow:
-        100px 200px 6px rgba(255,255,255,0.8),
-        300px 400px 8px rgba(255,255,255,0.6),
-        500px 100px 6px rgba(255,255,255,0.7),
-        700px 300px 10px rgba(255,255,255,0.5),
-        900px 150px 6px rgba(255,255,255,0.8),
-        1100px 350px 8px rgba(255,255,255,0.6),
-        1300px 250px 6px rgba(255,255,255,0.7),
-        1500px 100px 10px rgba(255,255,255,0.5),
-        1700px 400px 6px rgba(255,255,255,0.8);
-      animation: twinkle 4s infinite alternate;
-    }
+.star {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background: white;
+  border-radius: 50%;
+  opacity: 0.8;
+  box-shadow: 0 0 6px rgba(255,255,255,0.8);
+  transition: all 0.3s ease;
+}
 
-    .stars2::after {
-      content: "";
-      position: absolute;
-      width: 3px;
-      height: 3px;
-      border-radius: 50%;
-      background: #dbe3ff;
-      box-shadow:
-        150px 250px 10px rgba(219,227,255,0.6),
-        350px 450px 12px rgba(219,227,255,0.5),
-        750px 200px 10px rgba(219,227,255,0.6),
-        950px 500px 12px rgba(219,227,255,0.5),
-        1250px 300px 10px rgba(219,227,255,0.6),
-        1550px 600px 12px rgba(219,227,255,0.5);
-      animation: twinkle 6s infinite alternate;
-    }
-
-    @keyframes twinkle {
-      from { opacity: 0.3; }
-      to { opacity: 1; }
-    }
+.star:hover {
+  transform: scale(2.5);
+  box-shadow: 0 0 15px rgba(255,255,255,1);
+  opacity: 1;
+}
 
     /* HEADER */
     .header {
@@ -176,8 +152,7 @@
 
 <body>
 
-<div class="stars"></div>
-<div class="stars2"></div>
+<div id="star-container"></div>
 
 <div class="header">
   <h1>James Wanliss</h1>
@@ -247,5 +222,28 @@ window.addEventListener("scroll", function() {
 });
 </script>
 
+<script>
+const container = document.getElementById("star-container");
+
+for (let i = 0; i < 120; i++) {
+  let star = document.createElement("div");
+  star.classList.add("star");
+
+  star.style.top = Math.random() * 100 + "vh";
+  star.style.left = Math.random() * 100 + "vw";
+
+  let size = Math.random() * 2 + 1;
+  star.style.width = size + "px";
+  star.style.height = size + "px";
+
+  container.appendChild(star);
+}
+
+window.addEventListener("scroll", function() {
+  let scrollY = window.scrollY;
+  container.style.transform = "translateY(" + scrollY * 0.2 + "px)";
+});
+</script>
+  
 </body>
 </html>
