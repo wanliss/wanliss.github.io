@@ -28,19 +28,17 @@
 
 .star {
   position: absolute;
-
-  /* bigger invisible hover area */
-  width: 20px;
-  height: 20px;
-
-  background: transparent;
+  width: 2px;
+  height: 2px;
+  background: white;
   border-radius: 50%;
+  opacity: 0.85;
 
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  box-shadow:
+    0 0 4px rgba(255,255,255,0.8),
+    0 0 8px rgba(255,255,255,0.4);
 
-  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 /* actual visible star */
@@ -250,35 +248,57 @@
   </div>
 </div>
 
-<!-- 🌠 PARALLAX STARS -->
-<script>
-window.addEventListener("scroll", function() {
-  let scrollY = window.scrollY;
-  document.querySelector(".stars").style.transform = "translateY(" + scrollY * 0.2 + "px)";
-  document.querySelector(".stars2").style.transform = "translateY(" + scrollY * 0.4 + "px)";
-});
-</script>
-
 <script>
 const container = document.getElementById("star-container");
+const stars = [];
 
+// ⭐ CREATE STARS
 for (let i = 0; i < 120; i++) {
   let star = document.createElement("div");
   star.classList.add("star");
 
-  star.style.top = Math.random() * 100 + "vh";
-  star.style.left = Math.random() * 100 + "vw";
+  let x = Math.random() * window.innerWidth;
+  let y = Math.random() * window.innerHeight;
 
-  let size = Math.random() * 2 + 1;
-  star.style.width = size + "px";
-  star.style.height = size + "px";
+  star.style.left = x + "px";
+  star.style.top = y + "px";
 
   container.appendChild(star);
+
+  stars.push({ el: star, x: x, y: y });
 }
 
+// 🌠 PARALLAX SCROLL
 window.addEventListener("scroll", function() {
   let scrollY = window.scrollY;
   container.style.transform = "translateY(" + scrollY * 0.2 + "px)";
+});
+
+// 🌟 MOUSE PROXIMITY EFFECT (THIS FIXES YOUR ISSUE)
+document.addEventListener("mousemove", function(e) {
+  const mouseX = e.clientX;
+  const mouseY = e.clientY;
+
+  stars.forEach(star => {
+    let dx = mouseX - star.x;
+    let dy = mouseY - star.y;
+    let dist = Math.sqrt(dx * dx + dy * dy);
+
+    if (dist < 80) {
+      let scale = 1 + (80 - dist) / 20; // up to ~4x
+      star.el.style.transform = `scale(${scale})`;
+      star.el.style.boxShadow = `
+        0 0 ${10 + scale * 5}px rgba(255,255,255,1),
+        0 0 ${20 + scale * 8}px rgba(255,255,255,0.8)
+      `;
+    } else {
+      star.el.style.transform = "scale(1)";
+      star.el.style.boxShadow = `
+        0 0 4px rgba(255,255,255,0.8),
+        0 0 8px rgba(255,255,255,0.4)
+      `;
+    }
+  });
 });
 </script>
   
