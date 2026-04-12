@@ -28,18 +28,44 @@
 
 .star {
   position: absolute;
+
+  /* bigger invisible hover area */
+  width: 8px;
+  height: 8px;
+
+  background: transparent;
+  border-radius: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  cursor: pointer;
+}
+
+/* actual visible star */
+.star::after {
+  content: "";
   width: 2px;
   height: 2px;
   background: white;
   border-radius: 50%;
-  opacity: 0.85;
 
-  /* ✨ soft constant glow */
   box-shadow:
     0 0 4px rgba(255,255,255,0.8),
     0 0 8px rgba(255,255,255,0.4);
 
-  transition: transform 0.25s ease, box-shadow 0.25s ease, opacity 0.25s ease;
+  transition: all 0.25s ease;
+}
+
+/* 🌟 hover effect */
+.star:hover::after {
+  transform: scale(4);
+
+  box-shadow:
+    0 0 10px rgba(255,255,255,1),
+    0 0 20px rgba(255,255,255,0.9),
+    0 0 35px rgba(255,255,255,0.7);
 }
 
 /* 🌟 HOVER = brighter + bigger */
